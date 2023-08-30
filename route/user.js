@@ -49,7 +49,7 @@ route.post("/sign-up", async (req, res) => {
                 token: generateRandomString(10)
             }).save()
 
-            const url = `${process.env.URL}/user/${user._id}/verify/${token.token}`
+            const url = `https://url-frontend.netlify.app/user/${user._id}/verify/${token.token}`
 
             const transporter = nodemailer.createTransport({
                 service: "gmail",
@@ -195,7 +195,7 @@ route.post("/forgot_password", async (req, res) => {
         // if user exists
         const link = await generateLink(user.email)
         await userModel.findOneAndUpdate({ email: user.email }, { verification: link.verification })
-        const reset_link = `${process.env.URL}/reset_password/${link.verification}/${link.token}`
+        const reset_link = `https://url-frontend.netlify.app/reset_password/${link.verification}/${link.token}`
 
         // sending mail to reset password
         const transporter = nodemailer.createTransport({
