@@ -125,7 +125,7 @@ route.post('/login', async (req, res) => {
                     }).save()
                     
 
-                    const url = `${process.env.URL}/user/${user._id}/verify/${token.token}`
+                    const url = `https://url-frontend.netlify.app/user/${user._id}/verify/${token.token}`
                  
 
                     // sending email
